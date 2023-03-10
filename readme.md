@@ -1,0 +1,3 @@
+Olá!!
+Esse projeto foi feito para que eu pudesse treinar HTML, CSS, JavaScript e Bootstrap, e consequentemente, aprender mais.
+Esse projeto é um timer da técnica Pomodoro, que é uma técnica de gerenciamento de tempo. O diferencial do meu projeto, é que quando o timer é startado, inicia-se uma música lo-fi. Pelo lo-fi conter uma mistura de gêneros musicais e elementos em loop, esse estilo de música causa relaxamento, emoções positivas e concentraçao, sendo ideal para a realização de tarefas.

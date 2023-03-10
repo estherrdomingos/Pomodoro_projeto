@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS do bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <!-- MEU css externo-->
+    <link rel="stylesheet" href="./style.css" />
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!--Logo-->
+    <link rel="icon" href="./img/logopomodoro.png" type="image/png" />
+    <title>Pomodoro code</title>
+</head>
+
+<body class="bg-danger-subtle">
+    <!--MENU-->
+    <nav class="navbar navbar-expand-lg bg-warning-subtle">
+        <a class="navbar-brand" style="color: #8b4513" href="index.html">
+            Pomodoro code
+        </a>
+
+        <div class="ml-auto">
+            <a onclick="pausar()">
+                <i id="pause" class="fa fa-pause" style="color: #8b4513; font-size: 25pt; display: none;"></i>
+            </a>
+            <a onclick="executar()">
+                <i id="play" class="fa fa-play" style="color: #8b4513; font-size: 25pt; display: none;"></i>
+            </a>
+            <audio id="lofi" src="./audio/lo-fi.mp3" type="audio/mpeg"></audio>
+        </div>
+    </nav>
+    <!--CONTAINER   -->
+    <div class="container">
+        <div class="row d-flex justify-content-center mt-5 mb-5">
+            <div class="col-md-8">
+                <!--CONFIG-->
+                <div id="config" class="row d-flex justify-content-center">
+                    <div class="col">
+                        <!--INPUTS-->
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-3 d-flex justify-content-center">
+                                <div class="form-group">
+                                    <label class="d-flex justify-content-center" style="color: #8b4513"
+                                        for="acao">Ação</label>
+                                    <input type="number" style="color: #8b4513"
+                                        class="form-control form-control-lg bg-warning-subtle border-0 shadow"
+                                        id="acao" />
+                                        <small class="text-light" id="erro_acao"></small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-center">
+                                <div class="form-group">
+                                    <label class="d-flex justify-content-center" style="color: #8b4513"
+                                        for="pausa">Pausa</label>
+                                    <input type="number" style="color: #8b4513"
+                                        class="form-control form-control-lg bg-warning-subtle border-0 shadow"
+                                        id="pausa" />
+                                        <small class="text-light" id="erro_pausa"></small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-center">
+                                <div class="form-group">
+                                    <label class="d-flex justify-content-center" style="color: #8b4513"
+                                        for="sessoes">Sessões</label>
+                                    <input type="number" style="color: #8b4513"
+                                        class="form-control form-control-lg bg-warning-subtle border-0 shadow"
+                                        id="sessoes" />
+                                        <small class="text-light" id="erro_sessoes"></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--BOTÃO INICIAR-->
+    <div class="row mt-5 mb-5 d-fllex justify-content-center">
+        <div class="col-md-9 d-flex justify-content-center">
+            <button onclick="iniciar()" style="color:#8b4513" class="btn btn-ligth shadow btn-lg btn-block">Iniciar</button>
+
+        </div>
+        <!--TIMER-->
+        <div id="timer" class="mt-0 d-flex justify-content-center" style="display:none;">
+            <div class="row" mb-3>
+                <div class="col">
+                    <h3 id="title" class="text-center"></h3>
+                </div>
+
+                <!--RELÓGIO-->
+                <div class="row shadow time ">
+                    <div class="col-5 p-0 ">
+                        <h2 id="minutes_ok"></h2>
+                    </div>
+
+                    <div class="col-1 p-0 d-flex justify-content-center">
+                        <h2>:</h2>
+                    </div>
+
+                    <div class="col-5 pl-0">
+                        <h2 id="seconds_ok"></h2>
+                    </div>
+                </div>
+
+                <div class="row" mt-5>
+                    <div class="col">
+                        <h3 id="title_sessao" class="text-center text-secondary"></h3>
+                    </div>
+                </div>
+
+            </div>
+            <!--FINALIZOU-->
+            <div id="fim">
+            <h1 class="text-sucess text-center">Parabéns! Você finalizou suas tarefas.</h1>
+            <div class="row mt-5 mb-5 dflex justify-content-center">
+                <div class="col-md-9 d-flex justify-content-center">
+                    <a href="./index.html" class="btn btn-light shadow btn-lg">Início</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <script src="./script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+            integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
