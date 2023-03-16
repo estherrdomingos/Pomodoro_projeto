@@ -5,7 +5,7 @@ let segundos
 
 var bell = new Audio("./audio/bell.mp3")
 var volta = new Audio("./audio/volta.mp3")
-var final = new Audio("./audio/final.mp3")
+var musicafinal = new Audio("./audio/final.mp3")
 
 var lofi = document.getElementById('lofi')
 var pause = document.getElementById('pause')
@@ -47,12 +47,12 @@ function iniciar(){
         momentoAcao()
     }
 }
-function momentoAcao(){
+function momentoAcao() {
     let sessoes_valor = localStorage.getItem('sessoes')
     if(sessoes_valor !='1'){
-        document.getElementById('title_sessao').innerHTML = sessoes_valor + 'sessões restantes'
+        document.getElementById('title_sessao').innerHTML = sessoes_valor + ' sessões restantes'
     } else{
-        document.getElementById('title_sessao')
+        document.getElementById('title_sessao').innerHTML = sessoes_valor + ' sessões restantes'
     }
     
     let title = document.getElementById('title')
@@ -85,7 +85,7 @@ function momentoAcao(){
                 clearInterval(min_interval)
                 clearInterval(seg_interval)
 
-                bell.play();
+                bell.play()
                 momentoPausa()
             }
             segundos = 60
@@ -103,7 +103,7 @@ function momentoPausa(){
 
    min_pausa = Number(localStorage.getItem('pausa'))
 
-    min_pausa = min - 1
+    min_pausa = min_pausa - 1
     segundos = 59
 
     document.getElementById('minutes_ok').innerHTML = min_pausa
@@ -113,7 +113,7 @@ function momentoPausa(){
     var seg_interval = setInterval(segTimer,1000)
 
     function minTimer(){
-        min_pausa = min_pausa - 1
+        min_pausa = min_pausa-1
         document.getElementById('minutes_ok').innerHTML = min_pausa
     }
 
@@ -130,8 +130,9 @@ function momentoPausa(){
                 clearInterval(min_interval)
                 clearInterval(seg_interval)
                 if(ses <= 0){
-                    final.play()
+                    musicafinal.play()
                     localStorage.clear()
+
                     document.getElementById('config').style.setProperty('display', 'none', 'important')
                     document.getElementById('timer').style.setProperty('display', 'none', 'important')
                     document.getElementById('fim').style.setProperty('display', 'block', 'important')

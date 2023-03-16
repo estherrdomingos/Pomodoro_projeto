@@ -19,26 +19,33 @@
 
 <body class="bg-danger-subtle">
     <!--MENU-->
-    <nav class="navbar navbar-expand-lg bg-warning-subtle">
+    <nav class="navbar navbar-expand-lg navbar-ligth bg-warning-subtle">
         <a class="navbar-brand" style="color: #8b4513" href="index.html">
             Pomodoro code
         </a>
 
         <div class="ml-auto">
             <a onclick="pausar()">
-                <i id="pause" class="fa fa-pause" style="color: #8b4513; font-size: 25pt; display: none;"></i>
+                <i id="pause" class="fa fa-pause" style="color: #8b4513; font-size: 25pt; display: none;"
+                    aria-hidden="true"></i>
             </a>
             <a onclick="executar()">
-                <i id="play" class="fa fa-play" style="color: #8b4513; font-size: 25pt; display: none;"></i>
+                <i id="play" class="fa fa-play" style="color: #8b4513; font-size: 25pt; display: none;"
+                    aria-hidden="true"></i>
             </a>
             <audio id="lofi" src="./audio/lo-fi.mp3" type="audio/mpeg"></audio>
         </div>
     </nav>
+    <!--/MENU-->
+
     <!--CONTAINER   -->
     <div class="container">
+
+        <!--CONFIG-->
         <div class="row d-flex justify-content-center mt-5 mb-5">
+
             <div class="col-md-8">
-                <!--CONFIG-->
+
                 <div id="config" class="row d-flex justify-content-center">
                     <div class="col">
                         <!--INPUTS-->
@@ -50,7 +57,7 @@
                                     <input type="number" style="color: #8b4513"
                                         class="form-control form-control-lg bg-warning-subtle border-0 shadow"
                                         id="acao" />
-                                        <small class="text-light" id="erro_acao"></small>
+                                    <small class="text-light" id="erro_acao"></small>
                                 </div>
                             </div>
                             <div class="col-md-3 d-flex justify-content-center">
@@ -60,7 +67,7 @@
                                     <input type="number" style="color: #8b4513"
                                         class="form-control form-control-lg bg-warning-subtle border-0 shadow"
                                         id="pausa" />
-                                        <small class="text-light" id="erro_pausa"></small>
+                                    <small class="text-light" id="erro_pausa"></small>
                                 </div>
                             </div>
                             <div class="col-md-3 d-flex justify-content-center">
@@ -70,30 +77,38 @@
                                     <input type="number" style="color: #8b4513"
                                         class="form-control form-control-lg bg-warning-subtle border-0 shadow"
                                         id="sessoes" />
-                                        <small class="text-light" id="erro_sessoes"></small>
+                                    <small class="text-light" id="erro_sessoes"></small>
                                 </div>
                             </div>
                         </div>
+                        <!--/INPUTS-->
+
+
+                        <!--BOTÃO INICIAR-->
+                        
+                                <div class="row mt-5 mb-5 d-flex justify-content-center">
+                                    <div class="col-md-9 d-flex justify-content-center">
+                                <button onclick="iniciar()" style="color:#8b4513"
+                                    class="btn btn-ligth shadow btn-lg btn-block ">Iniciar</button>
+                            </div>
+                        </div>
+                        <!--/BOTÃO INICIAR-->
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--BOTÃO INICIAR-->
-    <div class="row mt-5 mb-5 d-fllex justify-content-center">
-        <div class="col-md-9 d-flex justify-content-center">
-            <button onclick="iniciar()" style="color:#8b4513" class="btn btn-ligth shadow btn-lg btn-block">Iniciar</button>
+        <!--/CONFIG-->
 
-        </div>
         <!--TIMER-->
         <div id="timer" class="mt-0 d-flex justify-content-center" style="display:none;">
-            <div class="row" mb-3>
+            <div class="row mb-3">
                 <div class="col">
                     <h3 id="title" class="text-center"></h3>
                 </div>
+            </div>
 
                 <!--RELÓGIO-->
-                <div class="row shadow time ">
+                <div class="row shadow time">
                     <div class="col-5 p-0 ">
                         <h2 id="minutes_ok"></h2>
                     </div>
@@ -106,7 +121,7 @@
                         <h2 id="seconds_ok"></h2>
                     </div>
                 </div>
-
+                <!--/Relógio-->
                 <div class="row" mt-5>
                     <div class="col">
                         <h3 id="title_sessao" class="text-center text-secondary"></h3>
@@ -114,16 +129,19 @@
                 </div>
 
             </div>
-            <!--FINALIZOU-->
-            <div id="fim">
-            <h1 class="text-sucess text-center">Parabéns! Você finalizou suas tarefas.</h1>
-            <div class="row mt-5 mb-5 dflex justify-content-center">
-                <div class="col-md-9 d-flex justify-content-center">
-                    <a href="./index.html" class="btn btn-light shadow btn-lg">Início</a>
+            <!--/TIMER-->
+            <!--FINALIZAÇÃO-->
+            <div id="fim" style="display: none;">
+                <h1 style="color: #8b4513;" class="text-center">Parabéns! Você finalizou suas tarefas.</h1>
+                <div class="row mt-5 mb-5 d-flex justify-content-center">
+                    <div class="col-md-9 d-flex justify-content-center">
+                        <a href="./index.html" class="btn btn-light shadow btn-lg">Início</a>
+                    </div>
                 </div>
             </div>
-            </div>
+            <!--/FINALIZAÇÃO-->
         </div>
+        <!--/CONTAINER-->
 
         <script src="./script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
