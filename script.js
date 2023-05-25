@@ -22,7 +22,6 @@ function executar(){
     play.style.setProperty('display', 'none', 'important')
     pause.style.setProperty('display', 'block', 'important')
 }
-
 function iniciar(){
     if(acao.value == 0){
         document.getElementById('erro_acao').innerHTML="Adicione os minutos!"
@@ -46,7 +45,15 @@ function iniciar(){
     
         momentoAcao()
     }
-}
+    if(acao.value>=1){
+        document.getElementById('erro_acao').hidden=true
+    }
+    if(pausa.value>=1){
+        document.getElementById('erro_pausa').hidden=true
+    }if(sessoes.value>=1){
+        document.getElementById('erro_sessoes').hidden=true
+    }
+    }
 function momentoAcao() {
     let sessoes_valor = localStorage.getItem('sessoes')
     if(sessoes_valor !='1'){
